@@ -1,9 +1,9 @@
 {
-    "presets":[
+    "presets": [
         [
             "env",
             {
-                "modules":false
+                "modules": false
             }
         ]
     ]
