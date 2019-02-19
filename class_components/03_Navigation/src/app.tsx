@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { AppHeader } from './components';
+import { Header } from './components';
 
-class App extends React.Component {
-    render() {
-        return <AppHeader/>
-    }
+export const App: React.StatelessComponent<{}> = (props) => {
+  return (
+    <Header />
+  );
 }
-
-export default App;

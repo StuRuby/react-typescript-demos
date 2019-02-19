@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { AppLayout } from './Layout';
+import { AppRouter } from './router';
 import 'antd/dist/antd.css';
 
 ReactDOM.render(
-    <AppLayout/>,
+    <AppRouter />,
     document.getElementById('root')
 );
