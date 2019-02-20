@@ -17,7 +17,9 @@ export class MembersPage extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-        memberAPI.fetchMembers().then(members => this.setState({ members }));
+        memberAPI
+            .fetchMembersAsync()
+            .then(members => this.setState({ members }));
     }
 
     render() {
