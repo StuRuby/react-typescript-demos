@@ -12,7 +12,8 @@ module.exports = {
         vendor: [
             'react',
             'react-dom',
-            'react-router-dom'
+            'react-router-dom',
+            'toastr'
         ],
     },
     output: {
