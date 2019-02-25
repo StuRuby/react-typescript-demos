@@ -23,6 +23,8 @@ export class MemberPageContainer extends React.Component<Props, State> {
                 avatar_url: ''
             }
         };
+        this.onFieldValueChange = this.onFieldValueChange.bind(this);
+        this.onSave = this.onSave.bind(this);
     }
 
     private onFieldValueChange(fieldName: string, value: string) {

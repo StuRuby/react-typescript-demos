@@ -43,6 +43,12 @@ export const Header: React.StatelessComponent<{}> = () => {
                 Members{" "}
               </Link>
             </li>
+            <li className="nav-item ">
+              <Link className="nav-link" to="/member">
+                {" "}
+                Member{" "}
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

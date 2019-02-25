@@ -1,8 +1,8 @@
-import * as React from "react";
-import { MemberEntity } from "../../model";
-import { memberAPI } from "../../api/member";
-import { MemberHeader } from "./memberHeader";
-import { MemberRow } from "./memberRow";
+import * as React from 'react';
+import { MemberEntity } from '../../model';
+import { memberAPI } from '../../api/member';
+import { MemberHeader } from './memberHeader';
+import { MemberRow } from './memberRow';
 
 interface State {
     members: MemberEntity[];
