@@ -3,14 +3,15 @@ import * as toastr from 'toastr';
 import { memberAPI } from '../../api/member';
 import { MemberEntity } from '../../model';
 import { MemberPage } from './page';
-import { History } from 'history';
 
 interface State {
     member: MemberEntity;
 }
 
 interface Props {
-    history: History;
+    params: {
+        id: string;
+    };
 }
 
 export class MemberPageContainer extends React.Component<Props, State> {
@@ -27,6 +28,16 @@ export class MemberPageContainer extends React.Component<Props, State> {
         this.onSave = this.onSave.bind(this);
     }
 
+    componentDidMount() {
+        const memberId = Number(this.props.params.id) || 0;
+        memberAPI.fetchMemberByID(memberId).then(member => {
+            this.setState({
+                ...this.state,
+                member
+            });
+        });
+    }
+
     private onFieldValueChange(fieldName: string, value: string) {
         const nextState = {
             ...this.state,
@@ -41,7 +52,7 @@ export class MemberPageContainer extends React.Component<Props, State> {
     private onSave() {
         memberAPI.saveMember(this.state.member).then(() => {
             toastr.success('Member saved');
-            this.props.history.goBack();
+            // this.props.history.goBack();
         });
     }
 

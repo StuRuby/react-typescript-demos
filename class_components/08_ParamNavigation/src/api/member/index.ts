@@ -16,6 +16,11 @@ const fetchMembersAsync = (): Promise<MemberEntity[]> => {
         .then(mapToMembers);
 };
 
+const fetchMemberByID = (id: number): Promise<MemberEntity> => {
+    const member = mockMembers.find(m => m.id === id);
+    return Promise.resolve(member);
+};
+
 const mapToMembers = (githubMembers: any): MemberEntity[] => {
     return githubMembers.map(mapToMember);
 };
@@ -54,4 +59,5 @@ export const memberAPI = {
     fetchMembers,
     fetchMembersAsync,
     saveMember,
+    fetchMemberByID
 };
