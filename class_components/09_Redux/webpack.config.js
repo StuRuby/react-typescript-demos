@@ -14,7 +14,10 @@ module.exports = {
             'react-dom',
             'react-router-dom',
             'toastr',
-            'lc-form-validation'
+            'lc-form-validation',
+            'redux',
+            'react-redux',
+            'redux-thunk'
         ],
     },
     output: {
