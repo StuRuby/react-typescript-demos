@@ -41,6 +41,7 @@ export class MemberPageContainer extends React.Component<Props, State> {
     public componentDidMount() {
         const memberId = Number(this.props.match.params.id) || 0;
         memberAPI.fetchMemberByID(memberId).then(member => {
+            debugger;
             this.setState({
                 ...this.state,
                 member
