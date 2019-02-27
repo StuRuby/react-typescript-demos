@@ -11,10 +11,14 @@ interface State {
     memberErrors: MemberErrors;
 }
 
-interface Props {
+interface Params {
     params: {
         id: string;
     };
+}
+
+interface Props {
+    match: Params;
 }
 
 export class MemberPageContainer extends React.Component<Props, State> {
@@ -34,8 +38,8 @@ export class MemberPageContainer extends React.Component<Props, State> {
         this.onSave = this.onSave.bind(this);
     }
 
-    componentDidMount() {
-        const memberId = Number(this.props.params.id) || 0;
+    public componentDidMount() {
+        const memberId = Number(this.props.match.params.id) || 0;
         memberAPI.fetchMemberByID(memberId).then(member => {
             this.setState({
                 ...this.state,
