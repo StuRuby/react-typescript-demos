@@ -1,0 +1,38 @@
+import * as React from 'react';
+import { MemberEntity, MemberErrors } from '../../model';
+import { MemberForm } from './memberForm';
+
+interface Props {
+    member: MemberEntity;
+    memberErrors: MemberErrors;
+    fetchMemberById: (id: number) => void;
+    onChange: (member: MemberEntity, fieldName: string, value: string) => void;
+    onSave: (member: MemberEntity) => void;
+}
+
+export class MemberPage extends React.Component<Props, {}> {
+    constructor(props) {
+        super(props);
+        this.onSave = this.onSave.bind(this);
+        this.onChange = this.onChange.bind(this);
+    }
+
+    private onChange(fieldName: string, value: string) {
+        this.props.onChange(this.props.member, fieldName, value);
+    }
+
+    private onSave() {
+        this.props.onSave(this.props.member);
+    }
+
+    render() {
+        return (
+            <MemberForm
+                member={this.props.member}
+                memberErrors={this.props.memberErrors}
+                onChange={this.onChange}
+                onSave={this.onSave}
+            />
+        );
+    }
+}
