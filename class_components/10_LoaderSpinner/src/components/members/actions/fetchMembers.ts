@@ -1,6 +1,7 @@
 import { memberAPI } from '../../../api/member';
 import { actionTypes } from '../../../common/constants/actionTypes';
 import { MemberEntity } from '../../../model';
+import { trackPromise } from 'react-promise-tracker';
 
 const fetchMemberCompleted = (members: MemberEntity[]) => ({
     type: actionTypes.FETCH_MEMBERS_COMPLETED,
@@ -8,7 +9,9 @@ const fetchMemberCompleted = (members: MemberEntity[]) => ({
 });
 
 export const fetchMembersAction = () => dispatch => {
-    memberAPI
-        .fetchMembers()
-        .then(members => dispatch(fetchMemberCompleted(members)));
+    trackPromise(
+        memberAPI
+            .fetchMembers()
+            .then(members => dispatch(fetchMemberCompleted(members)))
+    );
 };
