@@ -2,7 +2,7 @@ import { MemberEntity, RepositoryEntity } from '../../model';
 import { members } from './mockData';
 
 const baseUrl = 'https://api.github.com/orgs/lemoncode';
-const repoUrl = 'https://api.github.com/orgs/lemoncode/repos';
+const repoUrl = 'https://api.github.com/users/sturuby/repos';
 
 let mockMembers = members;
 
