@@ -4,6 +4,7 @@ import { MemberEntity } from '../../../model';
 import * as toastr from 'toastr';
 import { memberAPI } from '../../../api/member';
 import { memberFormValication } from '../memberFormValidation';
+import {trackPromise} from 'react-promise-tracker';
 
 const saveMemberActionCompleted = (
     formValidationResult: FormValidationResult
@@ -23,10 +24,12 @@ const saveMember = (member: MemberEntity) => {
 };
 
 export const saveMemberAction = (member: MemberEntity) => dispatch => {
-    memberFormValication.validateForm(member).then(formValidationResult => {
-        if (formValidationResult.succeeded) {
-            saveMember(member);
-        }
-        dispatch(saveMemberActionCompleted(formValidationResult));
-    });
+    trackPromise(
+        memberFormValication.validateForm(member).then(formValidationResult => {
+            if (formValidationResult.succeeded) {
+                saveMember(member);
+            }
+            dispatch(saveMemberActionCompleted(formValidationResult));
+        })
+    );
 };

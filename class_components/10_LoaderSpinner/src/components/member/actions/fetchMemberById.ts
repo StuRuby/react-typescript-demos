@@ -1,11 +1,14 @@
 import { actionTypes } from '../../../common/constants/actionTypes';
 import { MemberEntity } from '../../../model';
 import { memberAPI } from '../../../api/member';
+import {trackPromise} from 'react-promise-tracker';
 
 export const fetchMemberByIdAction = (id: number) => dispatch => {
-    memberAPI
+    trackPromise(
+        memberAPI
         .fetchMemberByID(id)
-        .then(member => dispatch(fetchMemberByIdCompleted(member)));
+        .then(member => dispatch(fetchMemberByIdCompleted(member)))
+    );
 };
 
 const fetchMemberByIdCompleted = (member: MemberEntity) => ({
