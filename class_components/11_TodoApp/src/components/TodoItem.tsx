@@ -7,7 +7,7 @@ interface Props {
     todo: Todo;
     editTodo: (id: number, text: string) => void;
     deleteTodo: (id: number) => void;
-    completeTodo: (id: number) => void;
+    completedTodo: (id: number) => void;
 }
 
 interface State {
@@ -36,7 +36,7 @@ export default class TodoItem extends React.Component<Props, State> {
     };
 
     render() {
-        const { todo, editTodo, deleteTodo, completeTodo } = this.props;
+        const { todo, editTodo, deleteTodo, completedTodo } = this.props;
         const element = this.state.editing ? (
             <TodoTextInput
                 text={todo.text}
@@ -49,7 +49,7 @@ export default class TodoItem extends React.Component<Props, State> {
                     className="toggle"
                     type="checkbox"
                     checked={todo.completed}
-                    onChange={() => this.props.completeTodo(todo.id)}
+                    onChange={() => this.props.completedTodo(todo.id)}
                 />
                 <label onDoubleClick={this.handleDoubleClick}>
                     {todo.text}
