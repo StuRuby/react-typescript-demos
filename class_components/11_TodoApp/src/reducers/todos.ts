@@ -11,7 +11,7 @@ import {
 
 interface State {
     id: number;
-    text: string;
+    text: string | undefined;
     completed: boolean;
 }
 
@@ -23,7 +23,7 @@ const initialState = [
     }
 ];
 
-export default function todos(state: State[] = initialState, action: Action) {
+const todos = (state: State[] = initialState, action: Action) => {
     switch (action.type) {
         case ADD_TODO:
             return [
@@ -68,4 +68,6 @@ export default function todos(state: State[] = initialState, action: Action) {
         default:
             return state;
     }
-}
+};
+
+export default todos;
