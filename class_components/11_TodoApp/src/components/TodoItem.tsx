@@ -55,7 +55,7 @@ export default class TodoItem extends React.Component<Props, State> {
                     {todo.text}
                 </label>
                 <button
-                    className="destory"
+                    className="destroy"
                     onClick={() => this.props.deleteTodo(todo.id)}
                 />
             </div>

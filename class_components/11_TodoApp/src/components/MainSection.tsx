@@ -43,7 +43,6 @@ export default class MainSection extends React.Component<Props, State> {
                         className="toggle-all"
                         type="checkbox"
                         defaultChecked={completedCount === todos.length}
-                        // checked={completedCount === todos.length}
                     />
                     <label onClick={actions.completeAll} />
                 </span>
