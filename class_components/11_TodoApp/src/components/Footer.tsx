@@ -64,7 +64,7 @@ export default class Footer extends React.Component<Props, {}> {
                 {this.renderTodoCount()}
                 <ul className="filters">
                     {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter => (
-                        <li>{this.renderFilterLink(filter)}</li>
+                        <li key={filter} >{this.renderFilterLink(filter)}</li>
                     ))}
                 </ul>
                 {this.renderClearButton()}
