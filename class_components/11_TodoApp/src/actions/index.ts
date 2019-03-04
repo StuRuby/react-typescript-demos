@@ -39,11 +39,15 @@ export const editTodo = (id: number, text: string): Action => ({
     text
 });
 
-export const completeTodo = (id: number): Action => ({
-    type: COMPLETE_ALL_TODO,
+export const completedTodo = (id: number): Action => ({
+    type: COMPLETE_TODO,
     id
 });
 
 export const clearCompleted = (): Action => ({
     type: CLEAR_COMPLETED
+});
+
+export const completeAll = (): Action => ({
+    type: COMPLETE_ALL_TODO
 });

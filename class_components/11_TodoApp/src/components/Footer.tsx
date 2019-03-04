@@ -38,6 +38,7 @@ export default class Footer extends React.Component<Props, {}> {
         const { filter: selectedFilter, onShow } = this.props;
         return (
             <a
+                key={filter}
                 className={classnames({ selected: filter === selectedFilter })}
                 style={{ cursor: 'pointer' }}
                 onClick={() => onShow(filter)}
