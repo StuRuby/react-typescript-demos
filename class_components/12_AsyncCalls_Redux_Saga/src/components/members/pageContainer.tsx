@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { State } from '../../reducers';
-import { fetchMembersAction, fetchRepositoriesAction } from './actions';
+import { fetchMembersStartAction, fetchRepositoriesAction } from './actions';
 import { MembersPage } from './page';
 
 const mapState = (state: State) => ({
@@ -10,7 +10,7 @@ const mapState = (state: State) => ({
 });
 
 const mapDispatch = dispatch => ({
-    fetchMembers: () => dispatch(fetchMembersAction()),
+    fetchMembers: () => dispatch(fetchMembersStartAction()),
     fetchRepos: () => dispatch(fetchRepositoriesAction())
 });
 

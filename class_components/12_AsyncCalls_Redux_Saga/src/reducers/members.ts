@@ -3,7 +3,7 @@ import { MemberEntity } from '../model';
 
 export const membersReducer = (state: MemberEntity[]=[], action) => {
     switch (action.type) {
-        case actionTypes.FETCH_MEMBERS_COMPLETED:
+        case actionTypes.FETCH_MEMBER_REQUEST:
             return handleFetchMembersCompleted(state, action.payload);
     }
     return state;
