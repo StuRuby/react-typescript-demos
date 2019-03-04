@@ -4,14 +4,14 @@ import { MemberEntity } from '../../../model';
 import { trackPromise } from 'react-promise-tracker';
 
 const fetchMemberCompleted = (members: MemberEntity[]) => ({
-    type: actionTypes.FETCH_MEMBERS_COMPLETED,
+    type: actionTypes.FETCH_MEMBER_REQUEST,
     payload: members
 });
 
 export const fetchMembersAction = () => dispatch => {
     trackPromise(
         memberAPI
-            .fetchMembers()
+            .fetchMembersAsync()
             .then(members => dispatch(fetchMemberCompleted(members)))
     );
 };
