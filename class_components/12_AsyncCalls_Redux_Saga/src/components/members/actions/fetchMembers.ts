@@ -3,15 +3,11 @@ import { actionTypes } from '../../../common/constants/actionTypes';
 import { MemberEntity } from '../../../model';
 import { trackPromise } from 'react-promise-tracker';
 
-const fetchMemberCompleted = (members: MemberEntity[]) => ({
-    type: actionTypes.FETCH_MEMBER_REQUEST,
-    payload: members
+export const fetchMembersStartAction = () => ({
+    type: actionTypes.FETCH_MEMBER_REQUEST_START
 });
 
-export const fetchMembersAction = () => dispatch => {
-    trackPromise(
-        memberAPI
-            .fetchMembersAsync()
-            .then(members => dispatch(fetchMemberCompleted(members)))
-    );
-};
+export const fetchMembersCompletedAction = (members: MemberEntity[]) => ({
+    type: actionTypes.FETCH_MEMBER_REQUEST_COMPLETED,
+    payload: members
+});
