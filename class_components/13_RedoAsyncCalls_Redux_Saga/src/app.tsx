@@ -1,11 +1,13 @@
 import * as React from 'react';
+import { Header } from './components';
 
-const App:React.StatelessComponent<{}>=()=>{
+const App: React.StatelessComponent<{}> = props => {
     return (
-        <div>
-            <h1>Hello</h1>
+        <div className="container-fluid">
+            <Header />
+            {props.children}
         </div>
     );
-}
+};
 
 export default App;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const About: React.StatelessComponent<{}> = () => {
+export const About: React.StatelessComponent<{}> = () => {
     return (
         <div className="row about-page col-12">
             <h1>Reudx_Saga</h1>
@@ -46,5 +46,3 @@ const About: React.StatelessComponent<{}> = () => {
         </div>
     );
 };
-
-export default About;
